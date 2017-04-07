@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+  <head>
+    <title>Test Page</title>
+
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+    <script src="materialize.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body>
+
+    <div class="black center">
+      <img src='header.png' />
+    </div>
+    <nav class="black" role="navigation">
+      <div class="nav-wrapper container">
+        <ul class="left hide-on-med-and-down">
+          <li><a href="https://springfieldsoftball.proboards.com/" class="yellow-text text-accent-4">League Forum</a></li>
+          <li><a href="#bidpoint" class="yellow-text text-accent-4">Bid Point Calculator</a></li>
+          <li><a href="#contract" class="yellow-text text-accent-4">Contract Calculator</a></li>
+          <li><a href="#cash" class="yellow-text text-accent-4">Cash Pool</a></li>
+          <li><a href="https://docs.google.com/spreadsheets/d/1w0rpX4JFkT1UD5nx16ZegScrpd71D9ShVLYAzgPoD2A" class="yellow-text text-accent-4">Team Rosters</a></li>
+        </ul>
+
+        <ul id="nav-mobile" class="side-nav" style="transform: translateX(-100%);">
+          <li><a href="#">Bonus Point Calculator</a></li>
+          <li><a href="#">Contract Calculator</a></li>
+          <li><a href="#">Cash Pool</a></li>
+        </ul>
+        <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+      </div>
+    </nav>
+
+    <div class="section no-pad-bot" id="index-banner">
+      <div class="container">
+        <br><br>
+        <h1 class="header center black-text">Springfield Softball League</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">This site contains tools to help owners with contracts for the league.</h5>
+        </div>
+        <br><br>
+
+      </div>
+    </div>
+
+
+    <div class="container" id="bidpoint">
+      <div class="section">
+        <div class="row">
+          <h3 class="header col s12 center">
+            Bid Point Calculator
+          </h3>
+        </div>
+        <!--   Icon Section   -->
+        <div class="row valign-wrapper">
+          <div class="col s12 m2 valign">
+            <h5>
+              Enter One:
+            </h5>
+          </div>
+          <div class="input-field col s12 m5">
+            <div>
+              <input id="cbp" type="text" class="validate">
+              <label for="cbp">Current Bid Point (Bid Point to beat)</label>
+            </div>
+          </div>
+          <div class="input-field col s12 m5">
+            <div>
+              <input id="nbp" type="text" class="validate">
+              <label for="nbp">Required Bid Points</label>
+            </div>
+          </div>
+        </div>
+        <div id="bidpoint-results" class="row valign-wrapper scale-transition scale-out">
+          <div class="col s12 m2 valign">
+            Possible Contracts:
+          </div>
+          <div class="col s12 m2 center">
+            <div>
+              1 year
+            </div>
+            <div id="cbp-val-1">
+
+            </div>
+            <div id="cbp-bp-1">
+
+            </div>
+          </div>
+          <div class="col s12 m2 center">
+            <div>
+              2 years
+            </div>
+            <div id="cbp-val-2">
+
+            </div>
+            <div id="cbp-bp-2">
+
+            </div>
+          </div>
+          <div class="col s12 m2 center">
+            <div>
+              3 years
+            </div>
+            <div id="cbp-val-3">
+
+            </div>
+            <div id="cbp-bp-3">
+
+            </div>
+          </div>
+          <div class="col s12 m2 center">
+            <div>
+              4 years
+            </div>
+            <div id="cbp-val-4">
+
+            </div>
+            <div id="cbp-bp-4">
+
+            </div>
+          </div>
+          <div class="col s12 m2 center">
+            <div>
+              5 years
+            </div>
+            <div id="cbp-val-5">
+
+            </div>
+            <div id="cbp-bp-5">
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <br><br>
+    </div>
+
+    <div class="container" id="contract">
+      <div class="section">
+        <div class="row">
+          <h3 class="header col s12 center">
+            Contract spread helper
+          </h3>
+        </div>
+        <!--   Icon Section   -->
+        <div class="row">
+          <div class="input-field col s6">
+            <div>
+              <input id="aav" type="text" class="validate">
+              <label for="aav">Average Annual Value</label>
+            </div>
+          </div>
+          <div class="input-field col s6">
+            <div>
+              <input id="years" type="text" class="validate">
+              <label for="years">Years</label>
+            </div>
+          </div>
+        </div>
+
+        <div id="contract-header" class="row">
+          <div>
+            Total:
+            <span id="total">
+              $0
+            </span>
+          </div>
+          <div>
+            Remaining:
+            <span id="remaining">$0</span>
+          </div>
+          <div id="minmax">
+            Min: <span id="min">$0</span>
+            <br/>
+            Max: <span id="max">$0</span>
+          </div>
+        </div>
+        <div class="row">
+          <div id="contract-year1" class="input-field scale-transition scale-out">
+            <input id="contract-year1-val" type="text" class="validate">
+            <label for="contract-year1-val">$</label>
+          </div>
+          <div id="contract-year2" class="input-field scale-transition scale-out">
+            <input id="contract-year2-val" type="text" class="validate">
+            <label for="contract-year2-val">$</label>
+          </div>
+          <div id="contract-year3" class="input-field scale-transition scale-out">
+            <input id="contract-year3-val" type="text" class="validate">
+            <label for="contract-year3-val">$</label>
+          </div>
+          <div id="contract-year4" class="input-field scale-transition scale-out">
+            <input id="contract-year4-val" type="text" class="validate">
+            <label for="contract-year4-val">$</label>
+          </div>
+          <div id="contract-year5" class="input-field scale-transition scale-out">
+            <input id="contract-year5-val" type="text" class="validate">
+            <label for="contract-year5-val">$</label>
+          </div>
+        </div>
+      </div>
+      <br><br>
+
+      <div class="section">
+
+      </div>
+    </div>
+
+    <div class="container" id="cash">
+      <div class="section">
+
+        <!--   Icon Section   -->
+        <div class="row">
+          <div class="col s12 m4">
+            <div class="icon-block">
+              <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+              <h5 class="center">Speeds up development</h5>
+
+              <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+            </div>
+          </div>
+
+          <div class="col s12 m4">
+            <div class="icon-block">
+              <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
+              <h5 class="center">User Experience Focused</h5>
+
+              <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+            </div>
+          </div>
+
+          <div class="col s12 m4">
+            <div class="icon-block">
+              <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+              <h5 class="center">Easy to work with</h5>
+
+              <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <br><br>
+
+      <div class="section">
+
+      </div>
+    </div>
+
+    <footer class="page-footer orange">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Company Bio</h5>
+            <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+
+
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Settings</h5>
+            <ul>
+              <li><a class="white-text" href="#!">Link 1</a></li>
+              <li><a class="white-text" href="#!">Link 2</a></li>
+              <li><a class="white-text" href="#!">Link 3</a></li>
+              <li><a class="white-text" href="#!">Link 4</a></li>
+            </ul>
+          </div>
+          <div class="col l3 s12">
+            <h5 class="white-text">Connect</h5>
+            <ul>
+              <li><a class="white-text" href="#!">Link 1</a></li>
+              <li><a class="white-text" href="#!">Link 2</a></li>
+              <li><a class="white-text" href="#!">Link 3</a></li>
+              <li><a class="white-text" href="#!">Link 4</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        Made by <a class="orange-text text-lighten-3" href="http://materializecss.com">Materialize</a>
+        </div>
+      </div>
+    </footer>
+
+
+    <!--  Scripts-->
+    <script>
+      (function($){
+        $(function(){
+
+          $('.button-collapse').sideNav();
+
+          $("#cbp,#nbp").bind("input", function(){
+            this.value = findValidFloat(this.value);
+            value = parseFloat(this.value);
+            if(isNaN(value)) {
+              this.value = "";
+              return;
+            }
+
+            $("#bidpoint-results").addClass("scale-in");
+
+            var id = this.id;
+            var ele, val;
+
+            if(id == "cbp") {
+              ele = $("#nbp");
+              value = (value*1.15);
+              ele.val(value.toFixed(3));
+            }
+            else {
+              ele = $("#cbp");
+              ele.val(value/1.15);
+            }
+
+            $("#cbp-val-1").text("$" + value.toFixed(3) + " M");
+            $("#cbp-bp-1").text(value.toFixed(3) + " BP");
+
+            var val2 = value/1.1;
+            if(val2 < 2)
+              val2 = 2;
+
+            $("#cbp-val-2").text("$" + val2.toFixed(3) + " M");
+            $("#cbp-bp-2").text((val2*1.1).toFixed(3) + " BP");
+
+            var val3 = value/1.2;
+            if(val3 < 3)
+              val3 = 3;
+
+            $("#cbp-val-3").text("$" + val3.toFixed(3) + " M");
+            $("#cbp-bp-3").text((val3*1.2).toFixed(3) + " BP");
+
+            var val4 = value/1.3;
+            if(val4 < 5)
+              val4 = 5;
+
+            $("#cbp-val-4").text("$" + val4.toFixed(3) + " M");
+            $("#cbp-bp-4").text((val4*1.3).toFixed(3) + " BP");
+
+            var val5 = value/1.4;
+            if(val5 < 10)
+              val5 = 10;
+
+            $("#cbp-val-5").text("$" + val5.toFixed(3) + " M");
+            $("#cbp-bp-5").text((val5*1.4).toFixed(3) + " BP");
+
+            Materialize.updateTextFields();
+
+
+          });
+
+          $("#aav").bind("input", function() {
+            this.value = findValidFloat(this.value);
+          });
+
+          $("#years").bind("input", function() {
+            this.value = parseInt(this.value,10);
+            if(isNaN(this.value)) {
+              this.value = "";
+              return;
+            }
+            if(this.value > 5)
+              this.value = 5;
+            if(this.value < 1)
+              this.value = 1;
+
+            for(var i = 0; i < 5; i++) {
+              if(i < this.value)
+                $("#contract-year" + (i+1)).addClass("scale-in");
+              else
+                $("#contract-year" + (i+1)).removeClass("scale-in");
+            }
+          });
+
+          $("#aav,#years,#contract-year1-val,#contract-year2-val,#contract-year3-val,#contract-year4-val,#contract-year5-val").change( function() {
+            $("#contract-header").removeClass("red").removeClass("darken-4").removeClass("white-text").removeClass("green").removeClass("darken-1");
+
+            var aav = parseInt($("#aav").val());
+            var years = parseInt($("#years").val());
+            if(isNaN(aav) || isNaN(years))
+              return;
+            $("#total").text("$" + (aav*years).toFixed(3));
+
+            var spent = 0;
+            var min = aav*0.7;
+            var max = aav*1.3;
+
+            $("#min").text(min.toFixed(3));
+            $("#max").text(max.toFixed(3));
+
+            var filled = true;
+
+            for(var i = 1; i <= years; i++) {
+              var ele = $("#contract-year" + i + "-val");
+              var val = parseFloat(ele.val());
+              if(!isNaN(val))
+              {
+                if(val < min) {
+                  ele.val(min.toFixed(3));
+                  val = min;
+                }
+                else if (val > max) {
+                  ele.val(max.toFixed(3));
+                  val = max;
+                }
+
+                spent += val;
+              } else {
+                filled = false;
+              }
+            }
+
+            $("#remaining").text((aav*years-spent).toFixed(3));
+            if(Math.abs(spent-aav*years) < 0.001)
+              $("#contract-header").addClass("white-text").addClass("green").addClass("darken-1");
+            else if(filled) {
+              $("#contract-header").addClass("white-text").addClass("red").addClass("darken-4");
+            }
+
+          });
+
+        }); // end of document ready
+      })(jQuery); // end of jQuery name space
+
+      function findValidFloat(str) {
+        var decimalFound = false;
+        var ret = "";
+        for (var i = 0; i < str.length; i++) {
+          if(str[i].match(/\d/))
+            ret += str[i];
+          if(str[i] == "." && !decimalFound) {
+            ret += ".";
+            decimalFound = true;
+          }
+        }
+        return ret;
+      }
+
+    </script>
+
+  </body>
+</DOCTYPE>
