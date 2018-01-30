@@ -320,7 +320,7 @@
           $("#aav,#years,#contract-year1-val,#contract-year2-val,#contract-year3-val,#contract-year4-val,#contract-year5-val").change( function() {
             $("#contract-header").removeClass("red").removeClass("darken-4").removeClass("white-text").removeClass("green").removeClass("darken-1");
 
-            var aav = parseInt($("#aav").val());
+            var aav = parseFloat($("#aav").val());
             var years = parseInt($("#years").val());
             if(isNaN(aav) || isNaN(years))
               return;
