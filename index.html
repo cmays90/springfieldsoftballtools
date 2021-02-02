@@ -251,43 +251,43 @@
             if(id == "cbp") {
               ele = $("#nbp");
               value = (value*1.15);
-              ele.val(value.toFixed(3));
+              ele.val(ceilTo(value, 3));
             }
             else {
               ele = $("#cbp");
               ele.val(value/1.15);
             }
 
-            $("#cbp-val-1").text("$" + value.toFixed(3) + " M");
-            $("#cbp-bp-1").text(value.toFixed(3) + " BP");
+            $("#cbp-val-1").text("$" + ceilTo(value, 3) + " M");
+            $("#cbp-bp-1").text(ceilTo(value, 3) + " BP");
 
             var val2 = value/1.1;
             if(val2 < 2)
               val2 = 2;
 
-            $("#cbp-val-2").text("$" + val2.toFixed(3) + " M");
-            $("#cbp-bp-2").text((val2*1.1).toFixed(3) + " BP");
+            $("#cbp-val-2").text("$" + ceilTo(val2,3) + " M");
+            $("#cbp-bp-2").text(ceilTo((val2*1.1), 3) + " BP");
 
             var val3 = value/1.2;
             if(val3 < 3)
               val3 = 3;
 
-            $("#cbp-val-3").text("$" + val3.toFixed(3) + " M");
-            $("#cbp-bp-3").text((val3*1.2).toFixed(3) + " BP");
+            $("#cbp-val-3").text("$" + ceilTo(val3, 3) + " M");
+            $("#cbp-bp-3").text(ceilTo(val3*1.2, 3) + " BP");
 
             var val4 = value/1.3;
             if(val4 < 5)
               val4 = 5;
 
-            $("#cbp-val-4").text("$" + val4.toFixed(3) + " M");
-            $("#cbp-bp-4").text((val4*1.3).toFixed(3) + " BP");
+            $("#cbp-val-4").text("$" + ceilTo(val4, 3) + " M");
+            $("#cbp-bp-4").text(ceilTo(val4*1.3, 3) + " BP");
 
             var val5 = value/1.4;
             if(val5 < 10)
               val5 = 10;
 
-            $("#cbp-val-5").text("$" + val5.toFixed(3) + " M");
-            $("#cbp-bp-5").text((val5*1.4).toFixed(3) + " BP");
+            $("#cbp-val-5").text("$" + ceilTo(val5, 3) + " M");
+            $("#cbp-bp-5").text(ceilTo(val5*1.4, 3) + " BP");
 
             Materialize.updateTextFields();
 
@@ -324,7 +324,7 @@
             var years = parseInt($("#years").val());
             if(isNaN(aav) || isNaN(years))
               return;
-            $("#total").text("$" + (aav*years).toFixed(3));
+            $("#total").text("$" + ceilTo(aav*years).toFixed(3));
 
             var spent = 0;
             var min = aav*0.7;
@@ -366,6 +366,15 @@
 
         }); // end of document ready
       })(jQuery); // end of jQuery name space
+      function ceilTo(n, digits) {
+        if (digits === undefined) {
+            digits = 0;
+        }
+
+        var multiplicator = Math.pow(10, digits);
+        n = parseFloat((n * multiplicator).toFixed(11));
+        return Math.ceil(n) / multiplicator;
+      }
 
       function findValidFloat(str) {
         var decimalFound = false;
